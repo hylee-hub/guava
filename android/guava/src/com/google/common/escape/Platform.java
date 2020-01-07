@@ -15,6 +15,7 @@
 package com.google.common.escape;
 
 import com.google.common.annotations.GwtCompatible;
+import java.util.concurrent.*; 
 
 /**
  * Methods factored out so that they can be emulated differently in GWT.
@@ -42,4 +43,29 @@ final class Platform {
           return new char[1024];
         }
       };
+  
+  private static final testMethod() {
+        ConcurrentHashMap<String, Integer> 
+          chm = new ConcurrentHashMap<String, Integer>(); 
+  
+        chm.put("Geeks", 100); 
+        chm.put("GFG", 10); 
+        chm.put("GeeksforGeeks", 25); 
+        chm.put("Contribute", 102); 
+        chm.put("Geeks", 5000); 
+		 		chm.put("GeeksforGeeks", 50000); 
+		 
+        // Displaying the HashMap 
+        System.out.println("The Mappings are: "); 
+        System.out.println(chm); 
+  
+        // Display the value of Geeks 
+        System.out.println("The Value associated to "
+                           + "Geeks is : " + chm.get("Geeks")); 
+  
+        // Getting the value of Contribute 
+        System.out.println("The Value associated to "
+                           + "Contribute is : " + chm.get("Contribute")); 
+  }
+  
 }
